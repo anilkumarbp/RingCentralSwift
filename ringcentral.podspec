@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name = "ringcentral"
-spec.version = "0.0.1"
+spec.version = "0.0.2"
 spec.summary = "RingCentral Swift SDK"
 spec.description = <<-DESC
 This RingCentral Swift SDK has been made to make Swift/ios development easier for developers who are using RingCentral Platform's suite of APIs. It handles authentication and the token lifecycle, makes API requests, and parses API responses. This documentation will help you get set up and going with some example API calls.
