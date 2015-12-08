@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-spec.name = "ringentral"
+spec.name = "ringcentral"
 spec.version = "0.0.1"
 spec.summary = "RingCentral Swift SDK"
 spec.description = <<-DESC
@@ -7,7 +7,9 @@ This RingCentral Swift SDK has been made to make Swift/ios development easier fo
 DESC
 spec.homepage = "http://developers.ringcentral.com"
 spec.platform = :osx, "10.10"
-spec.platform = :ios, "8.4"
+spec.platform = :ios, "8.0"
+spec.ios.deployment_target = "8.0"
+spec.osx.deployment_target = "10.10"
 spec.license = "MIT"
 spec.authors = { "Anil Kumar" => "anil.kumar@ringcentral.com" }
 spec.source = { :git => "https://github.com/anilkumarbp/RingCentralSwift.git", :tag => "0.0.1" }
