@@ -12,7 +12,7 @@ spec.ios.deployment_target = "8.0"
 spec.osx.deployment_target = "10.10"
 spec.license = "MIT"
 spec.authors = { "Anil Kumar" => "anil.kumar@ringcentral.com" }
-spec.source = { :git => "https://github.com/anilkumarbp/RingCentralSwift.git", :tag => "0.0.1" }
+spec.source = { :git => "https://github.com/anilkumarbp/RingCentralSwift.git", :tag => "0.0.2" }
 spec.source_files = "src/Core","src/Http","src/Platform","src/Subscription","src/Subscription/Crypto", "src/*.{h}"
 spec.exclude_files = "Classes/Exclude"
 spec.requires_arc = true
