@@ -28,7 +28,6 @@ public class Platform {
     internal let appSecret: String
     internal var appName: String
     internal var appVersion: String
-    //    var subscription: Subscription?
     
     
     /// Constructor for the platform of the SDK
@@ -54,7 +53,7 @@ public class Platform {
         return self.auth
     }
     
-    /// createUrl
+    /// func createUrl
     ///
     /// @param: path              The username of the RingCentral account
     /// @param: options           The password of the RingCentral account
@@ -72,7 +71,7 @@ public class Platform {
         return builtUrl
     }
     
-    /// Authorizes the user with the correct credentials
+    /// Authenticates the user with the correct credentials
     ///
     /// :param: username    The username of the RingCentral account
     /// :param: password    The password of the RingCentral account
@@ -85,7 +84,6 @@ public class Platform {
             "access_token_ttl": self.ACCESS_TOKEN_TTL,
             "refresh_token_ttl": self.REFRESH_TOKEN_TTL
             ])
-        println("Login : Successfull return from requestToken")
         self.auth.setData(response.getDict())
         println("Is access token valid : ",self.auth.accessTokenValid())
         println("The auth data is : ")
@@ -99,7 +97,6 @@ public class Platform {
     /// **Caution**: Refreshing an accessToken will deplete it's current time, and will
     /// not be appended to following accessToken.
     public func refresh() -> ApiResponse {
-        //        let transaction:
         println("Inside Rfresh")
         if(!self.auth.refreshTokenValid()){
             NSException(name: "Refresh token has expired", reason: "reason", userInfo: nil).raise()
@@ -107,9 +104,9 @@ public class Platform {
         let response = requestToken(self.TOKEN_ENDPOINT,body: [
             
             "refresh_token": self.auth.refreshToken(),
-            "grant_type": "refresh_token"
-            //            "access_token_ttl": self.ACCESS_TOKEN_TTL,
-            //            "refresh_token_ttl": self.REFRESH_TOKEN_TTL
+            "grant_type": "refresh_token",
+            "access_token_ttl": self.ACCESS_TOKEN_TTL,
+            "refresh_token_ttl": self.REFRESH_TOKEN_TTL
             ])
         println("Refresh : Successfull return from requestToken")
         println(response.getDict())
@@ -131,10 +128,8 @@ public class Platform {
             ensureAuthentication()
             let authHeader = self.auth.tokenType() + " " + self.auth.accessToken()
             request.setValue(authHeader, forHTTPHeaderField: "Authorization")
-            //            check = 1
         }
-        //        let url = createUrl(path,check: check,options: ["addServer": true])
-        //        let request = NSMutableURLRequest(URL:url)
+
         return request
     }
     
@@ -198,26 +193,8 @@ public class Platform {
         self.auth.reset()
         return response
     }
-    
-    
-    /// Returns whether or not the current accessToken is valid.
-    ///
-    /// :return: A boolean to check the validity of token.
-    public func isTokenValid() -> Bool {
-        return false
-    }
-    
-    
-    /// Returns whether or not the current Platform has been authorized with a user.
-    ///
-    /// :return: A boolean to check the validity of authorization.
-    public func isAuthorized() -> Bool {
-        return auth.isAccessTokenValid()
-    }
-    
-    /// Tells the user if the accessToken is valed
-    ///
-    ///
+  
+    /// Check if the accessToken is valed
     func ensureAuthentication() {
         println("Inside EnsureAuthentication")
         if (!self.auth.accessTokenValid()) {
@@ -227,7 +204,11 @@ public class Platform {
     
     
     
-    // Generic Method calls  ( HTTP ) GET
+    //  Generic Method calls  ( HTTP ) GET
+    ///
+    /// @param: url             token endpoint
+    /// @param: query           body
+    /// @return ApiResponse     Callback
     public func get(url: String, query: [String: String] = ["":""], completion: (response: ApiResponse) -> Void) {
         request([
             "method": "GET",
@@ -241,19 +222,12 @@ public class Platform {
         }
     }
     
-    // Generic Method calls  ( HTTP ) without completion handler
-    public func get(url: String, query: [String: String] = ["":""]) -> ApiResponse {
-        // Check if query is empty
-        
-        return request([
-            "method": "GET",
-            "url": url,
-            "query": query
-            ])
-    }
-    
     
     // Generic Method calls  ( HTTP ) POST
+    ///
+    /// @param: url             token endpoint
+    /// @param: body            body
+    /// @return ApiResponse     Callback
     public func post(url: String, body: [String: AnyObject] = ["":""], completion: (respsone: ApiResponse) -> Void) {
         request([
             "method": "POST",
@@ -268,6 +242,10 @@ public class Platform {
     }
     
     // Generic Method calls  ( HTTP ) PUT
+    ///
+    /// @param: url             token endpoint
+    /// @param: body            body
+    /// @return ApiResponse     Callback
     public func put(url: String, body: [String: AnyObject] = ["":""], completion: (respsone: ApiResponse) -> Void) {
         request([
             "method": "PUT",
@@ -282,6 +260,10 @@ public class Platform {
     }
     
     // Generic Method calls ( HTTP ) DELETE
+    ///
+    /// @param: url             token endpoint
+    /// @param: query           body
+    /// @return ApiResponse     Callback
     public func delete(url: String, query: [String: String] = ["":""], completion: (response: ApiResponse) -> Void) {
         request([
             "method": "DELETE",
@@ -295,9 +277,9 @@ public class Platform {
         }
     }
     
-    //    /// Generic HTTP request method
-    //    ///
-    //    /// :param: options     List of options for HTTP request
+    /// Generic HTTP request method
+    ///
+    /// @param: options     List of options for HTTP request
     func request(options: [String: AnyObject]) -> ApiResponse {
         var method = ""
         var url = ""
@@ -329,7 +311,7 @@ public class Platform {
     }
     
     
-    /// Generic HTTP request with completion handler
+    /// Generic HTTP request with completion handler ( call-back )
     ///
     /// :param: options         List of options for HTTP request
     /// :param: completion      Completion handler for HTTP request
@@ -356,10 +338,7 @@ public class Platform {
         if let b = options["body"] as? [String: AnyObject] {
             body = options["body"] as! [String: AnyObject]
         }
-        //        else if let b = options["body"] as? NSString {
-        //            body = options["body"] as! NSString
-        //        }
-        
+
         let urlCreated = createUrl(url,options: options)
         
         sendRequest(self.client.createRequest(method, url: urlCreated, query: query, body: body, headers: headers), path: url, options: options) {

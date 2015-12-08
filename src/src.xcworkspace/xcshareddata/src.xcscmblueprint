@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "04E5453814B54E7003EC89E646883958AC35758B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "04E5453814B54E7003EC89E646883958AC35758B" : 0,
+    "BA9E1CBEC5FC2FB89E1CD86F06E8EE21D86F47E1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8F024237-63AF-4B8F-A9DF-8D9858642EBA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "04E5453814B54E7003EC89E646883958AC35758B" : "RingCentralSwift",
+    "BA9E1CBEC5FC2FB89E1CD86F06E8EE21D86F47E1" : "swift-sdk-new"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "src",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "src\/src.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/anilkumarbp\/RingCentralSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04E5453814B54E7003EC89E646883958AC35758B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/anilkumarbp\/swift-sdk-new.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BA9E1CBEC5FC2FB89E1CD86F06E8EE21D86F47E1"
+    }
+  ]
+}

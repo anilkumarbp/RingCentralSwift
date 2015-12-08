@@ -10,7 +10,7 @@ import Foundation
 
 public class ApiResponse {
     
-    // Constants
+    // ApiResponse Constants
     internal var jsonAsArray = [String: AnyObject]()
     internal var jsonAsObject: AnyObject? = AnyObject?()
     internal var multipartTransactions: AnyObject? = AnyObject?()
@@ -23,13 +23,18 @@ public class ApiResponse {
     private var response: NSURLResponse?
     private var error: NSError?
     private var dict: NSDictionary?
-    
-    init(request: NSMutableURLRequest, status: Int = 200, data: NSData?, response: NSURLResponse?, error: NSError?, dict: NSDictionary?) { // data via constructor
+
+    /// Constructor for the ApiResponse
+    ///
+    /// @param: request     NSMutableURLRequest
+    /// @param: data        Instance of NSData
+    /// @param: response    Instance of NSURLResponse
+    /// @param: error       Instance of NSError
+    init(request: NSMutableURLRequest, status: Int = 200, data: NSData?, response: NSURLResponse?, error: NSError?) {
         self.request = request
         self.data = data
         self.response = response
         self.error = error
-        self.dict = dict
     }
     
     public func getText() -> String {
@@ -68,6 +73,8 @@ public class ApiResponse {
         return self.data
     }
     public func getDict() -> Dictionary<String,NSObject> {
+        var errors: NSError?
+        self.dict = NSJSONSerialization.JSONObjectWithData(self.data!, options: nil, error: &errors) as? NSDictionary
         return self.dict as! Dictionary<String, NSObject>
     }
     
