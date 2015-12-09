@@ -4,7 +4,8 @@
 [![codecov.io](https://codecov.io/github/anilkumarbp/RingCentralSwift/coverage.svg?branch=master)](anilkumarbp/RingCentralSwift.svg?branch=master)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 [![Gem Version](http://img.shields.io/gem/v/cocoapods.svg?style=flat)](http://badge.fury.io/rb/cocoapods)
-[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/NSStringMask/badge.png)](https://cocoadocs.org/docsets/NSStringMask)
+[![Version](https://img.shields.io/cocoapods/v/ringcentral.svg?style=flat)](http://cocoapods.org/pods/ringcentral)
+[![Platform](https://img.shields.io/cocoapods/p/ringcentral.svg?style=flat)](http://cocoapods.org/pods/ringcentral)
 
 
 ***
