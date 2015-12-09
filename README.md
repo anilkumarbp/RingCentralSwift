@@ -103,14 +103,14 @@ Currently all requests can be made through the following:
 
 ```swift
 platform.get('/account/~/extension/~')
-platform.post('/account/~/extension/~', array(...))
-platform.put('/account/~/extension/~', array(...))
-platform.delete('/account/~/extension/~')
+platform.post('/account/~/extension/~', body: [])
+platform.put('/account/~/extension/~', body: [])
+platform.delete('/account/~/extension/~', query: [])
 
 ```
 
-Attach the following code as a completion handler (callback) if needed:
-
+Attach the following code as a completion handler (**always**) :
+```swift
     {
       (transaction) in
         if (error) {
@@ -119,18 +119,23 @@ Attach the following code as a completion handler (callback) if needed:
             // continue with code
         }
     }
-
+```
 
 Returning 'data' into a Dictionary (JSON): This is handled by the **ApiResponse** class within the SDK. we can retrieve the dictionary as shown below
 
-    NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &errors) as! NSDictionary
-    // or
-    NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSDictionary
-
+NSJSON Serialization handled by **ApiResponse** class :
+```swift
+    NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &errors) as! NSDictionary  
+```    
+Retrieve the dictionary in your application as shown below :
+```swift
+    transaction.getDict()
+```
 
 For readability of the data
 
-    println(NSString(data: data!, encoding: NSUTF8StringEncoding))
+    println(transaction.getDict())
+
 
 # Performing RingOut
 
