@@ -85,7 +85,6 @@ public class Platform {
             "access_token_ttl": self.ACCESS_TOKEN_TTL,
             "refresh_token_ttl": self.REFRESH_TOKEN_TTL
             ])
-        println("Login : Successfull return from requestToken")
         self.auth.setData(response.getDict())
         println("Is access token valid : ",self.auth.accessTokenValid())
         println("The auth data is : ")
@@ -99,7 +98,6 @@ public class Platform {
     /// **Caution**: Refreshing an accessToken will deplete it's current time, and will
     /// not be appended to following accessToken.
     public func refresh() -> ApiResponse {
-        //        let transaction:
         println("Inside Rfresh")
         if(!self.auth.refreshTokenValid()){
             NSException(name: "Refresh token has expired", reason: "reason", userInfo: nil).raise()
@@ -107,9 +105,9 @@ public class Platform {
         let response = requestToken(self.TOKEN_ENDPOINT,body: [
             
             "refresh_token": self.auth.refreshToken(),
-            "grant_type": "refresh_token"
-            //            "access_token_ttl": self.ACCESS_TOKEN_TTL,
-            //            "refresh_token_ttl": self.REFRESH_TOKEN_TTL
+            "grant_type": "refresh_token",
+            "access_token_ttl": self.ACCESS_TOKEN_TTL,
+            "refresh_token_ttl": self.REFRESH_TOKEN_TTL
             ])
         println("Refresh : Successfull return from requestToken")
         println(response.getDict())
@@ -131,10 +129,8 @@ public class Platform {
             ensureAuthentication()
             let authHeader = self.auth.tokenType() + " " + self.auth.accessToken()
             request.setValue(authHeader, forHTTPHeaderField: "Authorization")
-            //            check = 1
         }
-        //        let url = createUrl(path,check: check,options: ["addServer": true])
-        //        let request = NSMutableURLRequest(URL:url)
+
         return request
     }
     
@@ -198,23 +194,23 @@ public class Platform {
         self.auth.reset()
         return response
     }
+//    
+//    
+//    /// Returns whether or not the current accessToken is valid.
+//    ///
+//    /// :return: A boolean to check the validity of token.
+//    public func isTokenValid() -> Bool {
+//        return false
+//    }
+//    
     
-    
-    /// Returns whether or not the current accessToken is valid.
-    ///
-    /// :return: A boolean to check the validity of token.
-    public func isTokenValid() -> Bool {
-        return false
-    }
-    
-    
-    /// Returns whether or not the current Platform has been authorized with a user.
-    ///
-    /// :return: A boolean to check the validity of authorization.
-    public func isAuthorized() -> Bool {
-        return auth.isAccessTokenValid()
-    }
-    
+//    /// Returns whether or not the current Platform has been authorized with a user.
+//    ///
+//    /// :return: A boolean to check the validity of authorization.
+//    public func isAuthorized() -> Bool {
+//        return auth.isAccessTokenValid()
+//    }
+//    
     /// Tells the user if the accessToken is valed
     ///
     ///
@@ -239,17 +235,6 @@ public class Platform {
                 completion(response: r)
                 
         }
-    }
-    
-    // Generic Method calls  ( HTTP ) without completion handler
-    public func get(url: String, query: [String: String] = ["":""]) -> ApiResponse {
-        // Check if query is empty
-        
-        return request([
-            "method": "GET",
-            "url": url,
-            "query": query
-            ])
     }
     
     
@@ -356,10 +341,7 @@ public class Platform {
         if let b = options["body"] as? [String: AnyObject] {
             body = options["body"] as! [String: AnyObject]
         }
-        //        else if let b = options["body"] as? NSString {
-        //            body = options["body"] as! NSString
-        //        }
-        
+
         let urlCreated = createUrl(url,options: options)
         
         sendRequest(self.client.createRequest(method, url: urlCreated, query: query, body: body, headers: headers), path: url, options: options) {
