@@ -5,7 +5,7 @@
 
 ***
 
-1. [Setting Up](#getting-started)
+1. [Getting Started](#getting-started)
 2. [Initialization](#initialization)
 3. [Authorization](#authorization)
 4. [Generic Requests](#generic-requests)
@@ -23,61 +23,26 @@
 
 # Getting Started
 
-Navigate to your project directory (the one with the 'workspace' file, e.g. `.xcodeproj` extension).
+### CocoaPods
 
-Type:
+The RingCentral Swift SDK is a CocoaPod written in Swift. [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
-    $ git clone https://github.com/ringcentral/ringcentral-swift.git
-    $ cd ringcentral-swift
-    $ chmod 700 setup.sh
-    $ ./setup.sh
-    $ cd ..
+```bash
+$ gem install cocoapods
+```
 
-The previous commands will automatically move all the appropriate files into your project directory.
+To integrate RingCentral Swift SDK into your Xcode project, navigate to the directory that contains your project and create a new **Podfile** with `pod init` or open an existing one, then add the following line:
 
-Open up Xcode to your project. File -> Add Files... -> add http, core, subscription, and platform.
+```ruby
+pod 'ringcentral'
+```
 
-Install CocoaPods to retrieve other dependencies.
+Then, run the following command to install the dependency:
 
-To set up CocoaPods:
+```bash
+$ pod install
+```
 
-    $ sudo gem install cocoapods
-
-The same line is used to update cocoapods accordingly.
-
-Ensure your current working directory is the project directory and execute the following CocoaPod commands:
-
-    $ pod init
-    $ open -a Xcode Podfile
-
-That will set up a Podfile and open it for editing.
-
-If you are in the iOS platform, replace the file contents with the following, ensuring you replace `YourProjectName` and `YourProjectNameTests` appropriately. The target file must have the literal string `Tests` appended to `YourProjectName`.
-
-    platform :ios, '8.0'
-    target 'YourProjectName' do
-    source 'https://github.com/CocoaPods/Specs'
-    pod 'PubNub', '~>4.0'
-    use_frameworks!
-    end
-    target 'YourProjectNameTests' do
-    end
-
-If you are in the OSx platform, replace the file contents with the following, ensuring you replace `YourProjectName` and `YourProjectTest` appropriately:
-    
-    platform :osx, '10.0'
-    target 'YourProjectName' do
-    source 'https://github.com/CocoaPods/Specs'
-    use_frameworks!
-    pod 'PubNub', '~>4.0'
-    end
-
-Save and close the Podfile.
-
-Go back into terminal and type the following from within the project directory:
-
-    $ pod update
-    $ pod install
 
 If for some reason there is not an Objective-C bridging header:
 Create a new File (File -> New -> File) of type Objective-C.
