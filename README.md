@@ -14,12 +14,13 @@
 7. [Subscription](#subscription)
 8. [SDK Demos](#sdk-demos)
 
+***
+
 ## Requirements
 
 - iOS 8.0+
 - Xcode 6.3+
 
-***
 
 # Getting Started
 
