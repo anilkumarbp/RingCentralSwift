@@ -46,7 +46,7 @@ Then, run the following command to install the dependency:
 $ pod install
 ```
 
-### Manually Add Subprojects
+### If you do not Use CocoaPods, manually Add Subprojects
 
 You can integrate Uber Rides into your project manually without using a dependency manager.
 
