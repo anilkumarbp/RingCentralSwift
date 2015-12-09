@@ -24,6 +24,7 @@
 
 - iOS 8.0+
 - Xcode 6.3+
+- Swift 1.2
 
 
 # Getting Started
