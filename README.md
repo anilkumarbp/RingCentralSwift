@@ -5,33 +5,23 @@
 
 ***
 
-1. [Overview](#overview)
-2. [Setting Up](#setting-up)
-3. [Initialization](#initialization)
-4. [Authorization](#authorization)
-5. [Generic Requests](#generic-requests)
-6. [Performing RingOut](#performing-ringout)
-7. [Sending SMS](#sending-sms)
-8. [Subscription](#subscription)
-9. [SDK Demos](#sdk-demos)
+1. [Setting Up](#getting-started)
+2. [Initialization](#initialization)
+3. [Authorization](#authorization)
+4. [Generic Requests](#generic-requests)
+5. [Performing RingOut](#performing-ringout)
+6. [Sending SMS](#sending-sms)
+7. [Subscription](#subscription)
+8. [SDK Demos](#sdk-demos)
 
 ## Requirements
 
 - iOS 8.0+
 - Xcode 7.1+
 
-
 ***
 
-# Overview
-
-The purpose of this RingCentral Swift SDK is to assist other developers in expediating the
-development of any application. The outlines attempt to mirror the legacy of other SDks,
-however it is not guaranteed to be exactly the same.
-
-***
-
-# Setting Up
+# Getting Started
 
 Navigate to your project directory (the one with the 'workspace' file, e.g. `.xcodeproj` extension).
 
