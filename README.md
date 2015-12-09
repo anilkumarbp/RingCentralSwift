@@ -54,7 +54,7 @@ You can integrate RingCentral Swift SDK into your project manually without using
 Drag the `src` project into your own and add the resource as an **Embedded Binary**, as well as a **Target Dependency** and **Linked Framework** (under Build Phases) in order to build on the simulator and on a device.
 
 <p align="center">
-  <img src="https://github.com/uber/rides-ios-sdk/blob/master/img/manual_install.png?raw=true" alt="Manually Install Framework"/>
+  <img src="https://github.com/anilkumarbp/RingCentralSwift/tree/master/img/Add_SubProject.png?raw=true" alt="Manually Install Framework"/>
 </p>
 
 # Initialization
