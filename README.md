@@ -8,7 +8,7 @@
 1. [Getting Started](#getting-started)
 2. [Initialization](#initialization)
 3. [Authorization](#authorization)
-4. [Generic Requests](#generic-requests)
+4. [Performing API Call](#performing-api-call)
 5. [Performing RingOut](#performing-ringout)
 6. [Sending SMS](#sending-sms)
 7. [Subscription](#subscription)
@@ -23,6 +23,7 @@
 
 
 # Getting Started
+
 
 ### CocoaPods **(recommended)**
 
@@ -47,6 +48,7 @@ Then, run the following command to install the dependency:
 $ pod install
 ```
 
+
 ### If you do not Use CocoaPods, manually Add Subprojects
 
 You can integrate RingCentral Swift SDK into your project manually without using a dependency manager.
@@ -56,6 +58,7 @@ Drag the `src` project into your own and add the resource as an **Embedded Binar
 <p align="center">
   <img src="https://github.com/anilkumarbp/RingCentralSwift/blob/master/img/Add_SubProject.png" alt="Manually Install Framework"/>
 </p>
+
 
 # Initialization
 
@@ -79,11 +82,11 @@ will be used as the 'server' parameter.
 
 To authorize the platform, extract the 'Platform' object:
 
-    var platform = rcsdk.getPlatform()
+    var platform = rcsdk.platform()
 
 Once the platform is extracted, call:
 
-    platform.authorize(username, password: password)
+    platform.login(username, password: password)
 
 or (to authorize with extension):
 
@@ -94,15 +97,17 @@ The SDK will automatically refresh the token so long the refresh token lives.
 *Caution*: If no extension is specified, platform automitically refers extension 101 (default).
 ***
 
-# Generic Requests
+# Performing API Call
 
 Currently all requests can be made through the following:
 
-    apiCall([
-        "method": "POST",
-        "url": "/restapi/v1.0/",
-        "body": ""
-    ])
+```Swift
+$apiResponse = $sdk->platform()->get('/account/~/extension/~');
+$apiResponse = $sdk->platform()->post('/account/~/extension/~', array(...));
+$apiResponse = $sdk->platform()->put('/account/~/extension/~', array(...));
+$apiResponse = $sdk->platform()->delete('/account/~/extension/~');
+
+```
 
 Attach the following code as a completion handler (callback) if needed:
 
