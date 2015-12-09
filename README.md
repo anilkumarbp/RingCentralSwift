@@ -125,46 +125,47 @@ Returning 'data' into a Dictionary (JSON): This is handled by the **ApiResponse*
 
 NSJSON Serialization handled by **ApiResponse** class :
 ```swift
-    NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &errors) as! NSDictionary  
+  NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &errors) as! NSDictionary  
 ```    
 Retrieve the dictionary in your application as shown below :
 ```swift
-    transaction.getDict()
+  transaction.getDict()
 ```
 
 For readability of the data
-
+```swift
     println(transaction.getDict())
-
+```
 
 # Performing RingOut
 
 RingOut follows a two-legged style telecommunication protocol.
 The following method call is used to send a Ring Out.
-
-    apiCall([
-        "method": "POST",
-        "url": "/restapi/v1.0/account/~/extension/~/ringout",
-        "body": ["to": ["phoneNumber": "14088861168"],
-                 "from": ["phoneNumber": "14088861168"],
-                 "callerId": ["phoneNumber": "13464448343"],
-                 "playPrompt": "true"]
+```swift
+    platform.post("/account/~/extension/~/ringout", body :
+    [ "to": ["phoneNumber": "ToNumber"],
+        "from": ["phoneNumber": "FromNumber"],
+        "callerId": ["phoneNumber": "CallerId"],
+        "playPrompt": "true"
     ])
+    {
+      (completition handler)
+    }
+```
 
 # Sending SMS
 
 The follow method call is used to send a SMS.
-
-platform.postSms("hi i'm min", to: "12345678912") // true
-    
-    apiCall([
-        "method": "POST",
-        "url": "/restapi/v1.0/account/~/extension/~/sms",
-        "body": ["to": [{"phoneNumber": "14088861168"}],
-                 "from": ["phoneNumber": "14088861168"],
-                 "text": "send message"
+```swift
+platform.post("/account/~/extension/~/sms", body :
+    [ "to": [["phoneNumber": "18315941779"]],
+        "from": ["phoneNumber": "15856234190"],
+        "text": "Test"
     ])
-
+    {
+      (completition handler)
+    }
+```
 
 # Subscription
 
