@@ -169,19 +169,28 @@ platform.post("/account/~/extension/~/sms", body :
 
 # Subscription
 
-To enable subscription, type:
+Create a subscription using the **createSubscription** method
+```swift
+var subscription = rcsdk.createSubscription()
+```
 
-    self.subscription = Subscription(platform: self)
-    subscription!.register()
+To add Events to the Subscription Object:
+```swift
+  subscription.addEvents(
+    [
+        "/restapi/v1.0/account/~/extension/~/presence",
+        "/restapi/v1.0/account/~/extension/~/message-store"
+    ])
+```
+Register a Subscription:
+```swift
+subscription.register()
+    {
+      (completition handler)
+    }
+```
+Please keep in mind that due to limitations of PUBNUB library, which is synchronous, subscriptions may expire and must be re-created manually.
 
-In order for PubNub to do something after a callback:
-
-    platform.subscription!.setMethod({
-        (arg) in
-        // do whatever you need to with the callback variable 'arg'
-    })
-
-An example in the demo is provided that changes the status color accordingly.
 
 ***
 
