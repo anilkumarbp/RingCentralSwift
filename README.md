@@ -24,7 +24,7 @@
 
 # Getting Started
 
-### CocoaPods
+### CocoaPods **(recommended)**
 
 The RingCentral Swift SDK is a CocoaPod written in Swift. [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
@@ -49,9 +49,9 @@ $ pod install
 
 ### If you do not Use CocoaPods, manually Add Subprojects
 
-You can integrate Uber Rides into your project manually without using a dependency manager.
+You can integrate RingCentral Swift SDK into your project manually without using a dependency manager.
 
-Drag the `UberRides` project into your own and add the resource as an **Embedded Binary**, as well as a **Target Dependency** and **Linked Framework** (under Build Phases) in order to build on the simulator and on a device.
+Drag the `src` project into your own and add the resource as an **Embedded Binary**, as well as a **Target Dependency** and **Linked Framework** (under Build Phases) in order to build on the simulator and on a device.
 
 <p align="center">
   <img src="https://github.com/uber/rides-ios-sdk/blob/master/img/manual_install.png?raw=true" alt="Manually Install Framework"/>
