@@ -17,7 +17,7 @@
 5. [Performing RingOut](#performing-ringout)
 6. [Sending SMS](#sending-sms)
 7. [Subscription](#subscription)
-8. [SDK Demos](#sdk-demos)
+8. [SDK Demos](#sdk-demo-1)
 
 ***
 
@@ -70,13 +70,13 @@ Drag the `src` project into your own and add the resource as an **Embedded Binar
 The RingCentral SDK is initiated in the following ways.
 
 **Sandbox:**
-
+```swift
     var rcsdk = SDK(appKey: app_key, appSecret: app_secret, server: SDK.RC_SERVER_SANDBOX)
-
+```
 **Production:**
-
+```swift
     var rcsdk = SDK(appKey: app_key, appSecret: app_secret, server: SDK.RC_SERVER_PRODUCTION)
-
+```
 The 'app_key' and 'app_secret' should be read from a configuration file.
 
 Depending on the stage of production, either                                        
