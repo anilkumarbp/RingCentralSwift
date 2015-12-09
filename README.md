@@ -6,8 +6,7 @@
 [![Gem Version](http://img.shields.io/gem/v/cocoapods.svg?style=flat)](http://badge.fury.io/rb/cocoapods)
 [![Version](https://img.shields.io/cocoapods/v/ringcentral.svg?style=flat)](http://cocoapods.org/pods/ringcentral)
 [![Platform](https://img.shields.io/cocoapods/p/ringcentral.svg?style=flat)](http://cocoapods.org/pods/ringcentral)
-
-
+[Code Climate]: https://codeclimate.com/github/anilkumarbp/RingCentralSwift
 ***
 
 1. [Getting Started](#getting-started)
