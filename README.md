@@ -34,6 +34,9 @@ $ gem install cocoapods
 To integrate RingCentral Swift SDK into your Xcode project, navigate to the directory that contains your project and create a new **Podfile** with `pod init` or open an existing one, then add the following line:
 
 ```ruby
+platform :ios, '8.0'
+use_frameworks!
+
 pod 'ringcentral'
 ```
 
