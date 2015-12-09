@@ -90,7 +90,7 @@ Once the platform is extracted, call:
 
 or (to authorize with extension):
 
-    platform.authorize(username, ext: ext, password: password)
+    platform.login(username, ext: ext, password: password)
 
 The SDK will automatically refresh the token so long the refresh token lives.
 
