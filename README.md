@@ -1,4 +1,4 @@
-# RingCentral Swift SDK
+# RingCentral Swift SDK ( Beta )
 
 [![Build Status](https://travis-ci.org/anilkumarbp/RingCentralSwift.svg?branch=master)](https://travis-ci.org/anilkumarbp/RingCentralSwift)
 [![codecov.io](https://codecov.io/github/anilkumarbp/RingCentralSwift/coverage.svg?branch=master)](anilkumarbp/RingCentralSwift.svg?branch=master)
@@ -14,6 +14,11 @@
 7. [Sending SMS](#sending-sms)
 8. [Subscription](#subscription)
 9. [SDK Demos](#sdk-demos)
+
+## Requirements
+
+- iOS 8.0+
+- Xcode 7.1+
 
 
 ***
