@@ -17,7 +17,7 @@
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.1+
+- Xcode 6.3+
 
 ***
 
@@ -42,16 +42,6 @@ Then, run the following command to install the dependency:
 ```bash
 $ pod install
 ```
-
-
-If for some reason there is not an Objective-C bridging header:
-Create a new File (File -> New -> File) of type Objective-C.
-You will be promped "Would you like to configure an Objective-C bridging header?".
-Select Yes, and insert the following into the Bridging Header file (.h).
-
-    #import <PubNub/PubNub.h>
-
-You will now be able to use the PubNub SDK written in Objective-C.
 
 # Initialization
 
