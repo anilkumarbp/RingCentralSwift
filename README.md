@@ -101,17 +101,18 @@ The SDK will automatically refresh the token so long the refresh token lives.
 
 Currently all requests can be made through the following:
 
-```Swift
-$apiResponse = $sdk->platform()->get('/account/~/extension/~');
-$apiResponse = $sdk->platform()->post('/account/~/extension/~', array(...));
-$apiResponse = $sdk->platform()->put('/account/~/extension/~', array(...));
-$apiResponse = $sdk->platform()->delete('/account/~/extension/~');
+```swift
+platform.get('/account/~/extension/~')
+platform.post('/account/~/extension/~', array(...))
+platform.put('/account/~/extension/~', array(...))
+platform.delete('/account/~/extension/~')
 
 ```
 
 Attach the following code as a completion handler (callback) if needed:
 
-    {(data, response, error) in
+    {
+      (transaction) in
         if (error) {
             // do something for error
         } else {
@@ -119,12 +120,8 @@ Attach the following code as a completion handler (callback) if needed:
         }
     }
 
-For simple checking of a successful status code:
 
-    (response as! NSHTTPURLResponse).statusCode / 100 == 2
-
-
-For turning 'data' into a Dictionary (JSON):
+Returning 'data' into a Dictionary (JSON): This is handled by the **ApiResponse** class within the SDK. we can retrieve the dictionary as shown below
 
     NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &errors) as! NSDictionary
     // or
