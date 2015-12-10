@@ -28,7 +28,6 @@ public class Platform {
     internal let appSecret: String
     internal var appName: String
     internal var appVersion: String
-    //    var subscription: Subscription?
     
     
     /// Constructor for the platform of the SDK
@@ -54,7 +53,7 @@ public class Platform {
         return self.auth
     }
     
-    /// createUrl
+    /// func createUrl
     ///
     /// @param: path              The username of the RingCentral account
     /// @param: options           The password of the RingCentral account
@@ -72,7 +71,7 @@ public class Platform {
         return builtUrl
     }
     
-    /// Authorizes the user with the correct credentials
+    /// Authenticates the user with the correct credentials
     ///
     /// :param: username    The username of the RingCentral account
     /// :param: password    The password of the RingCentral account
@@ -194,26 +193,8 @@ public class Platform {
         self.auth.reset()
         return response
     }
-//    
-//    
-//    /// Returns whether or not the current accessToken is valid.
-//    ///
-//    /// :return: A boolean to check the validity of token.
-//    public func isTokenValid() -> Bool {
-//        return false
-//    }
-//    
-    
-//    /// Returns whether or not the current Platform has been authorized with a user.
-//    ///
-//    /// :return: A boolean to check the validity of authorization.
-//    public func isAuthorized() -> Bool {
-//        return auth.isAccessTokenValid()
-//    }
-//    
-    /// Tells the user if the accessToken is valed
-    ///
-    ///
+  
+    /// Check if the accessToken is valed
     func ensureAuthentication() {
         println("Inside EnsureAuthentication")
         if (!self.auth.accessTokenValid()) {
@@ -223,7 +204,11 @@ public class Platform {
     
     
     
-    // Generic Method calls  ( HTTP ) GET
+    //  Generic Method calls  ( HTTP ) GET
+    ///
+    /// @param: url             token endpoint
+    /// @param: query           body
+    /// @return ApiResponse     Callback
     public func get(url: String, query: [String: String] = ["":""], completion: (response: ApiResponse) -> Void) {
         request([
             "method": "GET",
@@ -239,6 +224,10 @@ public class Platform {
     
     
     // Generic Method calls  ( HTTP ) POST
+    ///
+    /// @param: url             token endpoint
+    /// @param: body            body
+    /// @return ApiResponse     Callback
     public func post(url: String, body: [String: AnyObject] = ["":""], completion: (respsone: ApiResponse) -> Void) {
         request([
             "method": "POST",
@@ -253,6 +242,10 @@ public class Platform {
     }
     
     // Generic Method calls  ( HTTP ) PUT
+    ///
+    /// @param: url             token endpoint
+    /// @param: body            body
+    /// @return ApiResponse     Callback
     public func put(url: String, body: [String: AnyObject] = ["":""], completion: (respsone: ApiResponse) -> Void) {
         request([
             "method": "PUT",
@@ -267,6 +260,10 @@ public class Platform {
     }
     
     // Generic Method calls ( HTTP ) DELETE
+    ///
+    /// @param: url             token endpoint
+    /// @param: query           body
+    /// @return ApiResponse     Callback
     public func delete(url: String, query: [String: String] = ["":""], completion: (response: ApiResponse) -> Void) {
         request([
             "method": "DELETE",
@@ -280,9 +277,9 @@ public class Platform {
         }
     }
     
-    //    /// Generic HTTP request method
-    //    ///
-    //    /// :param: options     List of options for HTTP request
+    /// Generic HTTP request method
+    ///
+    /// @param: options     List of options for HTTP request
     func request(options: [String: AnyObject]) -> ApiResponse {
         var method = ""
         var url = ""
@@ -314,7 +311,7 @@ public class Platform {
     }
     
     
-    /// Generic HTTP request with completion handler
+    /// Generic HTTP request with completion handler ( call-back )
     ///
     /// :param: options         List of options for HTTP request
     /// :param: completion      Completion handler for HTTP request

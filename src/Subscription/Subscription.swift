@@ -117,18 +117,6 @@ public class Subscription: NSObject, PNObjectEventListener {
         }
     }
     
-    /// Set Keep Polling
-    public func setKeepPolling(flag: Bool? = false) {
-        self._keepPolling = flag!
-    }
-    
-    /// Keep Polling
-    public func keepPolling() -> Bool{
-        return self._keepPolling
-    }
-    
-    // getFullEventFilters()
-    
     /// Renews the subscription
     ///
     /// :param: options         List of options for PubNub
@@ -196,14 +184,7 @@ public class Subscription: NSObject, PNObjectEventListener {
         }
         
     }
-    
-    /// Unsubscribes from the current subscription
-    public func destroy() {
-        if let sub = self.subscription {
-            unsubscribe()
-        }
-    }
-    
+
     /// Sets a method that will run after every PubNub callback
     ///
     /// :param: functionHolder      Function to be ran after every PubNub callback
