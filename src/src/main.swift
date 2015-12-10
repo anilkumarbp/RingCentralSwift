@@ -8,10 +8,6 @@
 
 import Foundation
 
-
-println("Hello, World!")
-
-
 var app_key: String = ""
 var app_secret = ""
 var username = ""
@@ -34,39 +30,40 @@ println(response.getDict())
 
 platform.get("/account/~/extension/~/call-log")
     {
-        (transaction) in
+        (apiresponse) in
         println("Response is :")
-        println(transaction.getResponse())
+        println(apiresponse.getResponse())
         println("API response is :")
-        println(transaction.getDict())
+        println(apiresponse.getDict())
 }
-//sleep(2)
+
 
 // external refresh
-//
-//platform.refresh()
-//
-//
-//
-//print("completed call-logs")
-//
-//// add events to the subscription object
+
+println("Performing refresh now")
+
+platform.refresh()
+
+
+
+print("completed call-logs")
+
 subscription.addEvents(
     [
         "/restapi/v1.0/account/~/extension/~/presence",
         "/restapi/v1.0/account/~/extension/~/message-store"
     ])
-//
+
 subscription.register()
     {
-        (transaction) in
+        (apiresponse) in
         println("Response is :")
-        println(transaction.getResponse())
+        println(apiresponse.getResponse())
         println("API response is :")
-        println(transaction.getDict())
+        println(apiresponse.getDict())
 }
-////sleep(2)
-//
+
+
 platform.post("/account/~/extension/~/ringout", body :
     [ "to": ["phoneNumber": "18315941779"],
         "from": ["phoneNumber": "15856234190"],
@@ -74,15 +71,15 @@ platform.post("/account/~/extension/~/ringout", body :
         "playPrompt": "true"
     ])
     {
-        (transaction) in
+        (apiresponse) in
         println("Response is :")
-        println(transaction.getResponse())
+        println(apiresponse.getResponse())
         println("API response is :")
-        println(transaction.getDict())
+        println(apiresponse.getDict())
         
 }
 
-//sleep(5)
+
 
 
 platform.post("/account/~/extension/~/sms", body :
@@ -91,47 +88,47 @@ platform.post("/account/~/extension/~/sms", body :
         "text": "Test"
     ])
     {
-        (transaction) in
+        (apiresponse) in
         println("Response is :")
-        println(transaction.getResponse())
+        println(apiresponse.getResponse())
         println("API response is :")
-        println(transaction.getDict())
+        println(apiresponse.getDict())
         
 }
 
 print("completed ring-out")
 
-//platform.delete("/account/~/extension/~/ringout", query :
-//    [
-//        "ringoutId": "264"
-//    ])
-//    {
-//        (transaction) in
-//        println("Response is :")
-//        println(transaction.getResponse())
-//        println("API response is :")
-//        println(transaction.getDict())
-//
-//    }
-//sleep(5)
+platform.delete("/account/~/extension/~/ringout", query :
+    [
+        "ringoutId": "264"
+    ])
+    {
+        (apiresponse) in
+        println("Response is :")
+        println(apiresponse.getResponse())
+        println("API response is :")
+        println(apiresponse.getDict())
 
-//print("ring-out cancelled")
-//
-//multipartBuilder.setBody([
-//    "to":["phoneNumber":"15856234120"],
-//    "faxResolution":"High"
-//    ])
-//multipartBuilder.add("sample testing", fileName: "sample.txt")
-//
-//multipartBuilder.request("/account/~/extension/~/fax")
-//{
-//    (transaction) in
-//    println("Response is :")
-//    println(transaction.getResponse())
-//    println("API response is :")
-//    println(transaction.getDict())
-//
-//}
+    }
 
-//sleep(2)
-//
+
+print("ring-out cancelled")
+
+multipartBuilder.setBody([
+    "to":["phoneNumber":"15856234120"],
+    "faxResolution":"High"
+    ])
+multipartBuilder.add("sample testing", fileName: "sample.txt")
+
+multipartBuilder.request("/account/~/extension/~/fax")
+{
+    (apiresponse) in
+    println("Response is :")
+    println(apiresponse.getResponse())
+    println("API response is :")
+    println(apiresponse.getDict())
+
+}
+
+
+
