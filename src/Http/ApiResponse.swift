@@ -73,9 +73,6 @@ public class ApiResponse {
         return self.data
     }
     public func getDict() -> Dictionary<String,NSObject> {
-        if((self.dict) != nil) {
-            return self.dict as! Dictionary<String, NSObject>
-        }
         var errors: NSError?
         self.dict = NSJSONSerialization.JSONObjectWithData(self.data!, options: nil, error: &errors) as? NSDictionary
         return self.dict as! Dictionary<String, NSObject>

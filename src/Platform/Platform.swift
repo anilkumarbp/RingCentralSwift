@@ -280,7 +280,7 @@ public class Platform {
     /// Generic HTTP request method
     ///
     /// @param: options     List of options for HTTP request
-    private func request(options: [String: AnyObject]) -> ApiResponse {
+    func request(options: [String: AnyObject]) -> ApiResponse {
         var method = ""
         var url = ""
         var headers = [String: String]()
@@ -315,7 +315,7 @@ public class Platform {
     ///
     /// :param: options         List of options for HTTP request
     /// :param: completion      Completion handler for HTTP request
-    private func request(options: [String: AnyObject], completion: (response: ApiResponse) -> Void) {
+    func request(options: [String: AnyObject], completion: (response: ApiResponse) -> Void) {
         var method = ""
         var url = ""
         var headers = [String: String]()
