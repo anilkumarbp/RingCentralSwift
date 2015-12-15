@@ -9,9 +9,6 @@
 import Foundation
 
 
-println("Hello, World!")
-
-
 var app_key: String = ""
 var app_secret = ""
 var username = ""

@@ -156,7 +156,7 @@ public class Client {
             // Check if body is for authentication
             if (headers["Content-type"] == "application/x-www-form-urlencoded;charset=UTF-8") {
                 if let q = body {
-                    bodyFinal = "?"
+                    bodyFinal = ""
                     for key in q.keys {
                         bodyFinal = bodyFinal + key + "=" + (q[key]! as! String) + "&"
                     }
